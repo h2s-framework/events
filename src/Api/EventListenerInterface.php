@@ -4,5 +4,5 @@ namespace Siarko\Events\Api;
 
 interface EventListenerInterface
 {
-    public function consumeEvent($event);
+    public function consumeEvent(EventInterface $event);
 }

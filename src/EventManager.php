@@ -5,9 +5,10 @@ namespace Siarko\Events;
 use Psr\Log\LoggerInterface;
 use Siarko\Events\Api\EventInterface;
 use Siarko\Events\Api\EventListenerInterface;
+use Siarko\Events\Api\EventManagerInterface;
 use Throwable;
 
-class EventManager
+class EventManager implements EventManagerInterface
 {
 
     /**
@@ -107,6 +108,9 @@ class EventManager
             return null;
         }
         $paramType = $methodReflection->getParameters()[0]->getType();
+        if($paramType instanceof \ReflectionUnionType) {
+
+        }
         return $paramType?->getName();
     }
 
